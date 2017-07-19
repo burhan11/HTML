@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <link href="/Quesstyle.css" type="text/css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+  	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.google.com/?selection.family=Arima+Madurai">
+    <link rel="stylesheet" type="text/css" href="css/jquery.classyedit.css"/>
+
+  <title>Editor</title>
+  <style type="text/css" media="screen">
+
+
+   #prob{
+      list-style-type: none;
+      background-color: #f1f1f1;
+      position: relative;
+      border: 2px solid grey;
+      margin-left: 5%; 
+      margin-top: 2%;
+      height: 40px;
+      width: 800px;
+	}
+
+
+    #box{
+    	position: relative;
+    	display: block;
+        margin-top: 1%;
+    }
+
+    #editor {
+    	height: 500px;
+    	width: 800px; 
+        position: relative;
+        margin-top: 1%;
+        margin-left:5%;
+        border: 2px solid grey;
+    }
+
+    #header{
+      list-style-type: none;
+      background-color: #f1f1f1;
+      position: relative;
+      border: 2px solid grey;
+      margin-left: 5%; 
+      margin-top: 1%;
+      height: 40px;
+      width: 800px;
+	}
+
+    li{
+      float: right;
+    }
+
+    li a, .dropdown{
+      display: block;
+      position: relative;
+      text-decoration: none;
+      text-align: center;
+      padding: 4px 13px;
+      height: 35px;
+      color: #000;
+      background-color: #dddddd;
+    }
+    li a:hover, .droplist:hover .dropdown{
+      background-color: #555;
+      color: white;
+    }
+
+    li.droplist{
+      display: inline-block;
+    }
+    
+    .langname{
+      display: none;
+      position: relative;
+      background-color: #f9f9f9;
+      min-width: 60px;
+    }
+
+    .langname a{
+      color: black;
+      padding: 10px,13px;
+      text-decoration: none;
+      text-align: left;
+    }
+
+  
+    .droplist:hover .langname{
+      display: block;
+    }
+
+    #btn{
+      	display: block;
+      	position: relative;
+      	margin-left: 5%; 
+      	margin-top:7%;
+      	height: 40px;
+      	width: 800px;
+        border: 2px solid grey;
+      }
+
+    #btn button{
+      float: right;
+      padding: 13px;
+      height: 100%;
+      background-color: #dddddd;
+    }
+
+    #input{
+    	position: relative;
+    	margin-left: 70%;
+    	margin-top: -38%;
+    }
+
+    #output{
+    	position: relative;
+    	margin-left: 70%;
+    	margin-top: 1%;
+    }
+  #pro{
+        display:none;
+    	position: relative;
+    	margin-left: 5%;
+    	margin-top: 1%; 
+        width:800px;
+  }
+
+  #pro1{
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 5px 2px rgba(0,0,0,.3);
+    width: 1500px;
+    height: 100%;
+    margin:30px; 
+    margin: 0px auto;
+  }
+
+  body{
+  background-color:#F5F5DC;
+ }
+
+.ace_editor, .ace_editor * { font-family: "Monaco", "Menlo", "Ubuntu Mono", "Droid Sans Mono", "Consolas", monospace !important; font-size: 1em !important; font-weight: 400 !important; letter-spacing: 0 !important; }
+
+  </style>
+
+  <script type="text/javascript">
+     
+      function display(){
+             var pid=document.getElementById("pid").value;  
+       
+             var xmlhttp = new XMLHttpRequest();
+             xmlhttp.onreadystatechange = function() {
+               if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                 
+                    
+                    document.getElementById("quecontent").innerHTML=xmlhttp.responseText;
+
+
+                    var displayproperty=document.getElementById("pro");
+                    displayproperty.style.display=(displayproperty.style.display === 'none' ? 'block' : 'none');
+               }
+           };
+			xmlhttp.open("POST","question.php", true);
+			xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xmlhttp.send("q="+pid);
+
+      }
+  </script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a href="#" class="navbar-brand"  style="background-color:#4090c3; color:white;">Code-!t</a>
+      </div>
+      <div  class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="nav navbar-nav" id="nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Profile</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle"
+            data-toggle="dropdown">Practise <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Code & Compile</a></li>
+              <li><a href="#">Problems</a></li>
+              <li><a href="#">Assignments</a></li>
+            </ul>
+          </li>
+`         <li><a href="#">My Submission</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" id="nav-right">
+          <li><a href="index.html" style="color: white;">Log-Out!</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="inner-wrapper rounded-cr-body" id="pro1">
+<div id="prob">
+	<b style="margin-left: 4%; ">Problem Code</b>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" style=" float: center; height: 30px; width: 300px;" id="pid" placeholder="Enter Problem code">	
+
+        <button href="#" onclick="display()" style="float: right; color:#fff; background-color:#147089;  padding: 10px;font-size: 12px;
+    							box-shadow: 0 1px 3px 0 rgba(0,0,0,.5);
+    							border-radius: 2px;
+    							transition: background .2s ease-in;
+    							font-weight: 400;
+    							border: none; width: 100px;">Select</button>
+</div> 
+<div class="inner-wrapper rounded-cr-body" id="pro">
+		<div id="main-content-problem" class="box white">
+			<table id="problem-page-top">
+				<tr>
+					<td width="55%">
+						<h1 class="title" style="color: #1c7473 ;"><?php echo $q?></h1>
+					</td>	
+				</tr>
+			</table>
+			  <div id="problem-page-complete">
+			  	 <div id="problem">
+			  	 	<div class="content">
+			  	 		<b>Read Problem Carefully</b><br><br>
+			  	 		<p id="quecontent">
+                                                </p>
+			  	 		<hr>
+			  	 		<table cellspacing="0" cellpadding="0" align="left">
+							<tbody>
+								<tr>
+									<td width="2%"><b style="font-size: 18px;">Languages:</b></td>
+									<td width="7%">C, C++, JAVA, PYTHON, PHP</td>
+								</tr>
+							</tbody>			  	 			
+			  	 		</table>	
+			  	 	</div>
+			  	 	<br><br>
+			  	 </div>
+			  </div>
+		</div>
+	</div>
+<div id="box">      
+      <div id="header">
+        <li class="droplist" ><button href="#" class="dropdown" onclick="display()" style="float: right; color:#fff; background-color:#147089;  padding: 10px;font-size: 12px;
+    							box-shadow: 0 1px 3px 0 rgba(0,0,0,.5);
+    							border-radius: 2px;
+    							transition: background .2s ease-in;
+    							font-weight: 400;
+    							border: none; width: 100px;">Language</button>
+          <div class="langname">
+            <a href="#">Select</a>
+            <a onclick="selectLang('C')" href="#">C</a>
+            <a onclick="selectLang('Cpp')" href="#">Cpp</a>
+            <a onclick="selectLang('Python')" href="#">Python</a>
+            <a onclick="selectLang('Java')" href="#">Java</a>
+            <a onclick="selectLang('PHP')" href="#">PHP</a>
+          </div>
+        </li>
+          <b style="margin: 10px; margin: 20px;">CODE EDITOR !</b>
+      </div>
+ <div id="editor">
+</div>
+      <div id="input">
+      				<b>Custom Input</b><br>
+         	         <textarea rows="8" cols="40" id="in">
+
+         	         </textarea>
+
+      </div>
+
+      <div id="output">
+       				<b>Custom Output</b><br>
+			         <textarea rows="8" cols="40" id="out">
+         	         </textarea>
+
+      </div>
+     
+      <div id="btn">
+                  <button href="#" onclick="upload()" style="color:#fff; background-color:#147089;  padding: 10px;font-size: 12px;
+    							box-shadow: 0 1px 3px 0 rgba(0,0,0,.5);
+    							border-radius: 2px;
+    							transition: background .2s ease-in;
+    							font-weight: 400;
+    							border: none;margin-left: 8px;">SUBMIT</button>
+          <button href="#" onclick="edit()" style="color:#fff; background-color:#147089;  padding: 10px;font-size: 12px;
+    							box-shadow: 0 1px 3px 0 rgba(0,0,0,.5);
+    							border-radius: 2px;
+    							transition: background .2s ease-in;
+    							font-weight: 400;
+    							border: none;">RUN</button>
+        <input type="hidden" id="lname"> 
+      </div>
+</div>
+</div>
+<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+ace.require("ace/ext/language_tools");
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/html");
+    editor.setTheme("ace/theme/tomorrow");
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true,
+         fontSize: "20px"
+        
+    });
+
+
+  function selectLang(lang){
+    if(lang=="C" || lang=="Cpp")
+      editor.getSession().setMode("ace/mode/c_cpp");
+    else if(lang=="Python")
+      editor.getSession().setMode("ace/mode/python");
+    else if(lang=="Java")
+      editor.getSession().setMode("ace/mode/java");
+    else if(lang=="PHP")
+      editor.getSession().setMode("ace/mode/php"); 
+  	 document.getElementById("lname").value=lang;
+  }
+
+  function edit(){
+  
+    var code=editor.getValue();
+   	var lname=document.getElementById("lname").value;
+    var test=document.getElementById("in").value;
+    //alert(lname+code+test);
+    var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      //      	alert(xmlhttp.responseText);
+            	if(xmlhttp.responseText.search("error")>0 || xmlhttp.responseText.search("Error")>0 || xmlhttp.responseText.search("Traceback")>0){
+	                document.getElementById("out").value=xmlhttp.responseText;
+	                document.getElementById("out").style.color="red";
+            	}
+            	else{
+            	    document.getElementById("out").value=xmlhttp.responseText;
+	                document.getElementById("out").style.color="green";	
+            	}
+            }
+        };
+			xmlhttp.open("POST", "code_editor.php", true);
+			xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xmlhttp.send("c="+encodeURIComponent(lname)+"&q="+encodeURIComponent(code)+"&i="+encodeURIComponent(test));
+    }
+
+  
+  
+</script>
+<script src="js/jquery-3.0.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.classyedit.js"></script>
+
+</body>
+</html>
