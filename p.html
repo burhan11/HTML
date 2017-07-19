@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="pstyle.css" type="text/css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.google.com/?selection.family=Arima+Madurai">
+    <link rel="stylesheet" type="text/css" href="css/jquery.classyedit.css" />
+<style type="text/css">
+  
+body{
+  background-color:#F5F5DC;
+ }
+ .block{
+    margin: 0 0 5px;
+    margin-top: 0px;
+    margin-right:-40px;
+    margin-bottom: 5px;
+    margin-left:0px;
+    float: right;
+    width: 410px;
+    height: 470px;
+    overflow-y: auto;
+    position: relative;
+ }
+ .topbox-small-2{
+    border: 1px solid #B3B3B3;
+    padding-top: 8px;
+    background: #f1f1f1;
+    float: left;
+    font-size: 12px;
+    margin: 0 0 5px;
+    margin-top: 0px;
+    margin-right:-40px;
+    margin-bottom: 5px;
+    margin-left:0px;
+    float: right;
+    width: 410px;
+    position: relative;
+}
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			 	<span class="icon-bar"></span>
+			  </button>
+				<a href="#" class="navbar-brand"  style="background-color:#4090c3; color:white;">Code-!t</a>
+			</div>
+			<div  class="collapse navbar-collapse" id="mainNavbar">
+				<ul class="nav navbar-nav" id="nav">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Profile</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">Practise <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Code & Compile</a></li>
+							<li><a href="#">Easy</a></li>
+							<li><a href="#">Hard</a></li>
+						</ul>
+					</li>
+`					<li><a href="#">My Submission</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right" id="nav-right">
+					<li><a href="index.html" style="color: white;">Log-Out!</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>
+
+<div class="modal fade" id="CP">
+      <div class="modal-dialog" style="width:400px;">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: black;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="modal-title" style="color:white;">Change Password</span>
+     </div>
+        </div>
+        <div class="modal-body">
+          <form role="form" action="check.php" method="post">
+            <div class="form-group">
+              <label><span class="glyphicon glyphicon-pencil"></span>Current Password</label>
+              <input type="text" name="coderid" class="form-control" placeholder="Current Password">
+              
+            </div>
+            <div class="form-group">
+                <label><span class="glyphicon glyphicon-pencil"></span>New Password</label>
+              <input type="password" name="coderpass" class="form-control" placeholder="New Password">
+              <div id="login_error"></div>
+            </div> 
+            <div class="form-group">
+                <label><span class="glyphicon glyphicon-pencil"></span>Confirm Password</label>
+              <input type="password" name="coderpass" class="form-control" placeholder="Confirm Password">
+              <div id="login_error"></div>
+            </div> 
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success pull-right"><span class="glyphicon glyphicon-edit"></span> Save</button>
+          </form>
+
+        </div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+
+
+
+<div class="inner-wrapper rounded-cr-body">
+	<div class="container">
+      <div class="row">
+      
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 " >
+   
+   
+          <div class="panel panel-info" style="width: 750px; height:520px;  border-color:black">
+            <div class="panel-heading" style="background-color:black">
+              <h3 class="panel-title" style="font-size: 16px;font-weight: 700; color: white;" >Abhinav Jain</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+               	<div class="col-md-3 col-lg-3" id="pic" style="float: left;"> <img id="myImg" alt="User Pic" src="http://images.performgroup.com/di/library/goal_de/c2/f5/lionel-messi-01112017_kw2a6hz9v1cy1xjofs1dpg76l.jpg?t=-1726089631&w=620&h=430"> 
+               		<div class="profile-edit">
+               			<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-pencil" style="color: white;"></span></a>
+                        <ul class="dropdown-menu">
+                        <li><a href="#">View Image</a></li>
+                        <li><a href="#">Browse Image</a></li>
+                        <li><a href="#">Upload Image</a></li>
+                        </ul>
+                    </li>  
+               		</div>
+               	</div>
+                 <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td><b>Code!t handle:</b></td>
+                        <td style="color: brown">abh1906</td>
+                      </tr>
+                      <tr>
+                        <td><b>Country:</b></td>
+                        <td><img src="http://www.gilltimbers.com/assets/img/flags/india_square_640.png"/>India</td>
+                      </tr>
+                  	  <tr>
+                        <td><b>Gender:</b></td>
+                        <td>Male</td>
+                      </tr>
+                        <tr>
+                        <td><b>Profession:</b></td>
+                        <td>Student</td>
+                      </tr>
+                      <tr>
+                        <td><b>Email:</b></td>
+                        <td><a href="#">jain.abhinav2406@gmail.com</a></td>
+                      </tr>
+                        <td><b>Institute:</b></td>
+                        <td>Shri Govindram Seksaria Institute of Technology and Science</td>
+                      </tr>
+                       <tr>
+                        <td><b>Qualificatiion:</b></td>
+                        <td>Banchlor of Engineering</td>
+                      </tr>
+                      </tr>
+                        <td><b>Successfully Solved:</b></td>
+                        <td>2</td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                   <button href="#" type="button" class="btn btn-primary" id="btnTrigger" data-toggle="modal" data-target="#CP"> <span class="glyphicon glyphicon-pencil"></span> Change Password</button>
+                </div>
+              </div>
+             </div>
+                <div class="panel-footer">
+                        <button href="#" type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-edit"></span> Edit</button>
+                </div> 
+            
+          </div>
+
+        </div>
+        <br><br>
+        <div class="center topbox-small-2">
+            <h3 style="color: #656565;font-size: 15px;margin: 10px 130px;font-weight: 700;">RECENT ACTIVITY</h3>
+        </div>
+        <br>
+      <div class="block block-block" style="border:1px solid;">
+
+            <table class="table table-user-information">
+                <thead style="background-color: black;">
+                  <tr>
+                    <th style="color: white">Problem</th>
+                    <th style="color: white;">Language</th>
+                     <th style="color: white;">Time</th>
+                  </tr>
+                </thead>
+                  <tbod>
+                      <tr>
+                        <td><a href="#">p1</a></td>
+                        <td>C</td>
+                        <td >2 sec</td>
+                      </tr>
+                      <tr>
+                       <td><a href="#">p2</a></td>
+                        <td>PYH</td>
+                        <td >1 sec</td>
+                      </tr>
+                  </tbody>
+            </table>
+    </div>
+</div>  
+    <script src="js/jquery-3.0.0.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.classyedit.js"></script>
+</body>
+</html>
